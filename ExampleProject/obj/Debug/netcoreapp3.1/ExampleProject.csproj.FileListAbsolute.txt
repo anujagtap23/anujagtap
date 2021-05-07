@@ -1,0 +1,13 @@
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.csprojAssemblyReference.cache
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.AssemblyInfoInputs.cache
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.AssemblyInfo.cs
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.csproj.CoreCompileInputs.cache
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.exe
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.deps.json
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.runtimeconfig.json
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.runtimeconfig.dev.json
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.dll
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\bin\Debug\netcoreapp3.1\ExampleProject.pdb
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.dll
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.pdb
+C:\Users\ajagtap\OneDrive - Microsoft\Documents\Anu\Interview\ExampleProject\obj\Debug\netcoreapp3.1\ExampleProject.genruntimeconfig.cache

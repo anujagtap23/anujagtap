@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\ExampleProject\\ExampleProject.csproj": {}
+    "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\anujagtap\\ExampleProject\\ExampleProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\ExampleProject\\ExampleProject.csproj": {
+    "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\anujagtap\\ExampleProject\\ExampleProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\ExampleProject\\ExampleProject.csproj",
+        "projectUniqueName": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\anujagtap\\ExampleProject\\ExampleProject.csproj",
         "projectName": "ExampleProject",
-        "projectPath": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\ExampleProject\\ExampleProject.csproj",
+        "projectPath": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\anujagtap\\ExampleProject\\ExampleProject.csproj",
         "packagesPath": "C:\\Users\\ajagtap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\ExampleProject\\obj\\",
+        "outputPath": "C:\\Users\\ajagtap\\OneDrive - Microsoft\\Documents\\Anu\\Interview\\anujagtap\\ExampleProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Collections.NonGeneric": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

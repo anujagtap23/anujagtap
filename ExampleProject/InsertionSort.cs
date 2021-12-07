@@ -8,7 +8,7 @@ namespace ExampleProject
     {
         public static int[] InsertionSortAscendingIterative(int[] arr)
         {
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 int currValue = arr[i];
                 int j = i - 1;
@@ -23,13 +23,49 @@ namespace ExampleProject
             return arr;
         }
 
+        public static int[] InsertionSortAscendingIterativePractise1(int[] arr)
+        {
+            for (int i = 1; i < arr.Length; i++)
+            {
+                int j = i - 1;
+                int valToInstert = arr[i];
+                while (j >= 0 && arr[j] > valToInstert)
+                {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j + 1] = valToInstert;
+            }
+            return arr;
+        }
         public static int[] InsertionSortAscendingRecursive(int[] arr)
         {
             InsertionSortAscendingRecursiveHelper(arr, arr.Length - 1);
             return arr;
         }
 
-        public static void InsertionSortAscendingRecursiveHelper(int[] arr, int nth)
+        public static int[] InsertionSortAscendingRecursivePractise1(int[] arr)
+        {
+            InsertionSortAscendingRecursiveHelperPractise1(arr, arr.Length - 1);
+            return arr;
+        }
+
+        public static void InsertionSortAscendingRecursiveHelperPractise1(int[] arr, int nth)
+        {
+            if (nth <= 0)
+                return;
+            InsertionSortAscendingRecursiveHelperPractise1(arr, nth - 1);
+            int j = nth - 1;
+            int valToInsert = arr[nth];
+            while(j >= 0 && arr[j] > valToInsert)
+            {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = valToInsert;
+        } 
+
+            public static void InsertionSortAscendingRecursiveHelper(int[] arr, int nth)
         {
             if (nth <= 0)
                 return;

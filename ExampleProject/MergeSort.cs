@@ -8,7 +8,7 @@ namespace ExampleProject
     {
         public static int[] MergeSortAscendingRecursive(int[] arr)
         {
-            MergeSortAscendingRecursiveHelper(arr, 0, arr.Length -1);
+            MergeSortAscendingRecursiveHelper(arr, 0, arr.Length - 1);
             return arr;
         }
 
@@ -22,9 +22,9 @@ namespace ExampleProject
             int j = mid + 1;
             List<int> aux = new List<int>();
 
-            while(i <= mid && j <= end)
+            while (i <= mid && j <= end)
             {
-                if(arr[i] <= arr[j])
+                if (arr[i] <= arr[j])
                 {
                     aux.Add(arr[i]);
                     i++;
@@ -54,11 +54,57 @@ namespace ExampleProject
         private static void CopyAuxToArr(int[] arr, List<int> aux, int start, int end)
         {
             int j = 0;
-            for(int i = start; i <= end; i++)
+            for (int i = start; i <= end; i++)
             {
                 arr[i] = aux[j];
                 j++;
             }
+        }
+
+        public static int[] MergeSortAscendingRecursivePractise1(int[] arr)
+        {
+            MergeSortAscendingRecursiveHelperPractise1(arr, 0, arr.Length - 1);
+            return arr;
+        }
+
+        public static void MergeSortAscendingRecursiveHelperPractise1(int[] arr, int start, int end)
+        {
+            if (start == end)
+                return; //single element
+            int mid = (start + end) / 2;
+            MergeSortAscendingRecursiveHelperPractise1(arr, start, mid);
+            MergeSortAscendingRecursiveHelperPractise1(arr, mid + 1, end);
+
+            int j = start, k = mid + 1;
+            List<int> aux = new List<int>();
+
+            while (j <= mid && k <= end)
+            {
+                if (arr[j] <= arr[k])
+                {
+                    aux.Add(arr[j]);
+                    j++;
+                }
+                else
+                {
+                    aux.Add(arr[k]);
+                    k++;
+                }
+            }
+
+            while (j <= mid)
+            {
+                aux.Add(arr[j]);
+                j++;
+            }
+
+            while (k <= end)
+            {
+                aux.Add(arr[k]);
+                k++;
+            }
+
+            CopyAuxToArr(arr, aux, start, end);
         }
     }
 }

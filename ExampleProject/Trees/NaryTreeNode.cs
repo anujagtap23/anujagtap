@@ -149,5 +149,33 @@ namespace ExampleProject.Trees
             return result;
         }
 
+        private int result = 0;
+
+        //559. Maximum Depth of N-ary Tree
+        public int MaxDepth(NaryTreeNode root)
+        {
+
+            if (root != null)
+                MaxDepthHelper(root, 1);
+            return result;
+        }
+
+        public void MaxDepthHelper(NaryTreeNode root, int height)
+        {
+            if (root.Children == null || root.Children.Count == 0)
+                result = Math.Max(result, height);
+            else
+            {
+
+                if (root.Children != null || root.Children.Count > 0)
+                {
+                    foreach (NaryTreeNode child in root.Children)
+                    {
+                        MaxDepthHelper(child, height + 1);
+                    }
+                }
+            }
+        }
+
     }
 }

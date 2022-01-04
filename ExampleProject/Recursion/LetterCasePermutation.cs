@@ -54,7 +54,7 @@ namespace ExampleProject.Recursion
                 {
                     stringSoFar.Append(currChar); // make a choice 
                     GetUpperLowerCasePermutationEfficientHelper(str, index + 1, stringSoFar, result);//recurse
-                    stringSoFar.Remove(stringSoFar.Length - 1, 1);//remove choice
+                    stringSoFar.Remove(stringSoFar.Length - 1, 1);//remove choice , just like stack pop when recursion goes back to the root
                 }
                 else
                 {
@@ -65,6 +65,8 @@ namespace ExampleProject.Recursion
                     stringSoFar.Append(char.ToUpper(currChar));// make a choice 
                     GetUpperLowerCasePermutationEfficientHelper(str, index + 1, stringSoFar, result);//recurse
                     stringSoFar.Remove(stringSoFar.Length - 1, 1);//remove choice
+
+                    string s;
                 }
             }
         }

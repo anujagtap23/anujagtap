@@ -60,6 +60,7 @@ namespace ExampleProject
         }
         public static int[] CycleSortAscending(int[] arr)
         {
+            
             Console.WriteLine("Cycle Sort: Stable is implemented correctly, in place, best/avg/worst case O(n)\n");
             if (arr == null || arr.Length <= 1) return arr;
 
@@ -70,7 +71,6 @@ namespace ExampleProject
                     CommonUtility.SwapTwoIntArrayElements(arr, i, arr[i]);
                 }
             }
-
             return arr;
         }
 

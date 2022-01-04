@@ -11,6 +11,14 @@ namespace ExampleProject
         public static void Main(string[] args)
         {
 
+            //LCS path src -> dest
+            PAthFromSrcToDestLCA obj = new PAthFromSrcToDestLCA();
+            obj.GetDir();
+            //calculate num of rectangles
+
+            CalculateRectangleArea.NumOfRectanlges();
+
+
             //Sorting Algorithms
             int[] arr = { 3, 7, 4, 5, 2, 0, 3, 0, 9, -1, -10, 0 };
             Console.WriteLine("Section Sort Iterative: NOT Stable, in place, best/avg/worst case O (n^2)");
@@ -228,6 +236,9 @@ namespace ExampleProject
             {
                 Console.WriteLine($"{evenOdd[i]},");
             }
+            int[] evenOdd1 = new int[] { 3, 5, 10, 9, 4 };
+            PrintArray(SortingProblems.LeftEvenRightOddArrangementPractise1(evenOdd1));
+            
 
             Console.WriteLine($"============= DutchNationalFlag arrange R0 - G1- B2");
             int[] dutchNationalFlag = new int[] { 0,2,1,1,1,2,0,0,2,1,2 };

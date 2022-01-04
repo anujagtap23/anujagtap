@@ -59,7 +59,7 @@ namespace ExampleProject
         {
             Dictionary<int, List<int>> numberHash = BuildArrayHash(arr);
 
-            foreach(int num1 in numberHash.Keys)
+            foreach (int num1 in numberHash.Keys)
             {
                 int num2 = target - num1;
                 if (numberHash.ContainsKey(num2))
@@ -92,7 +92,7 @@ namespace ExampleProject
                         break;
 
                     if ((num2 == num1 && numberHash[num1].Count <= 1) || (numberHash[num2].Count == 0))
-                    continue;
+                        continue;
 
                     int num3 = target - num1 - num2;
                     if (numberHash.ContainsKey(num3))
@@ -226,7 +226,7 @@ namespace ExampleProject
                 i++;
             }
 
-            foreach(DictionaryEntry e in countHashTable)
+            foreach (DictionaryEntry e in countHashTable)
             {
                 if ((int)e.Value == 3)
                     result.Add((int)e.Key);
@@ -235,10 +235,10 @@ namespace ExampleProject
         }
         private static bool Contains(List<List<int>> result, List<int> triplet)
         {
-            foreach(List<int> e in result)
+            foreach (List<int> e in result)
             {
                 bool contains = true;
-                foreach(int trip in triplet)
+                foreach (int trip in triplet)
                 {
                     if (!e.Contains(trip))
                         contains = false;
@@ -251,7 +251,7 @@ namespace ExampleProject
             return false;
         }
 
-        public static int[] MergeTwoAscendingSortedArrays(int[]arr1, int arr1M, int[]arr2, int arr2N)
+        public static int[] MergeTwoAscendingSortedArrays(int[] arr1, int arr1M, int[] arr2, int arr2N)
         {
             //assume arr1 has enough size to hold all elements
             int i = arr1M - 1, j = arr2N - 1;
@@ -268,18 +268,55 @@ namespace ExampleProject
                 }
             }
 
-            while(i >= 0)
+            while (i >= 0)
             {
                 arr1[currIndex--] = arr1[i--];
             }
 
-            while(j >= 0)
+            while (j >= 0)
             {
                 arr1[currIndex--] = arr2[j--];
             }
 
             return arr1;
         }
+
+
+        /*
+         * Complete the merger_first_into_second function below.
+         */
+        static void Merger_first_into_second(int[] arr1, int[] arr2)
+        {
+
+            if (arr1 != null && arr2 != null && arr2.Length == arr1.Length * 2)
+            {
+                int ind1 = arr1.Length - 1;
+                int ind2 = arr1.Length - 1;
+                int i = arr2.Length - 1;
+                while (i >= 0)
+                {
+                    if (ind1 >= 0 && ind2 >= 0 && arr1[ind1] > arr2[ind2])
+                    {
+                        arr2[i--] = arr1[ind1--];
+                    }
+                    else if (ind1 >= 0 && ind2 >= 0 && arr2[ind2] >= arr1[ind1])
+                    {
+                        arr2[i--] = arr2[ind2--];
+                    }
+                    else if (ind1 >= 0 && ind2 < 0)
+                    {
+                        arr2[i--] = arr1[ind1--];
+                    }
+                    else if (ind2 >= 0 && ind1 < 0)
+                    {
+                        arr2[i--] = arr2[ind2--];
+                    }
+                }
+
+            }
+
+        }
+
         public static Dictionary<int, List<int>> BuildArrayHash(int[] arr)
         {
             Dictionary<int, List<int>> numberHash = new Dictionary<int, List<int>>();
@@ -288,13 +325,13 @@ namespace ExampleProject
                 if (!numberHash.ContainsKey(arr[index]))
                 {
                     List<int> indices = new List<int>();
-                    indices.Add(index+1);
+                    indices.Add(index + 1);
                     numberHash.Add(arr[index], indices);
                 }
                 else
                 {
                     numberHash.TryGetValue(arr[index], out List<int> value);
-                    value.Add(index+1);
+                    value.Add(index + 1);
                     numberHash[arr[index]] = value;
                 }
             }
@@ -322,7 +359,7 @@ namespace ExampleProject
         {
             Dictionary<int, int> frequencyList = new Dictionary<int, int>();
 
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (!frequencyList.ContainsKey(arr[i]))
                     frequencyList.Add(arr[i], 1);
@@ -330,7 +367,7 @@ namespace ExampleProject
                     frequencyList[arr[i]] = (int)frequencyList[arr[i]] + 1;
             }
 
-            List<FrquencyKeyValue> list =  ConvertDictToFrquencyKeyValue(frequencyList);
+            List<FrquencyKeyValue> list = ConvertDictToFrquencyKeyValue(frequencyList);
             QuickSortRecursiveHelperTopK(list, 0, list.Count - 1, list.Count - kthIndex);
 
             List<int> results = new List<int>();
@@ -348,7 +385,7 @@ namespace ExampleProject
         {
             List<FrquencyKeyValue> list = new List<FrquencyKeyValue>();
 
-            foreach(KeyValuePair<int, int> kv in frequencyList)
+            foreach (KeyValuePair<int, int> kv in frequencyList)
             {
                 list.Add(new FrquencyKeyValue(kv.Key, kv.Value));
             }
@@ -379,7 +416,7 @@ namespace ExampleProject
 
             if (smaller == kthArrayIndex)
                 return;
-            if(kthArrayIndex < smaller)
+            if (kthArrayIndex < smaller)
                 QuickSortRecursiveHelperKthLargest(arr, start, smaller - 1, kthArrayIndex);
             else
                 QuickSortRecursiveHelperKthLargest(arr, smaller + 1, bigger - 1, kthArrayIndex);
@@ -418,7 +455,7 @@ namespace ExampleProject
         {
             int evenIndex = 0, currIndex = 0;
 
-            while(currIndex < arr.Length)
+            while (currIndex < arr.Length)
             {
                 if (arr[currIndex] % 2 == 1)
                     currIndex++;
@@ -431,6 +468,100 @@ namespace ExampleProject
             }
         }
 
+
+       public static int[] LeftEvenRightOddArrangementPractise1(int[] arr)
+        {
+
+            int i = 0, j = arr.Length - 1;
+
+            while (i < j)
+            {
+                if (arr[i] % 2 == 1)
+                {
+                    Swap(arr, i, j);
+                    j--;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            return arr;
+        }
+
+        static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+
+
+        public static void DuthNationFlagR0G1B2_3WayPAtitioningClean(int[] arr)
+        {
+            if (arr != null && arr.Length > 0)
+            {
+                int red = 0; int blue = arr.Length - 1;
+                int i = 0;
+
+                while (i <= blue) //as blue is at a non blue place always we need to consider that as well but beyond blueIndex all are sorted blues
+                {
+                    if (arr[i] < 1)
+                    {
+                        SwapTwoArrayElements(arr, i, red);
+                        i++;
+                        red++;
+                    }
+                    else if (arr[i] > 1)
+                    {
+                        SwapTwoArrayElements(arr, i, blue);
+                        blue--;
+                    }
+                    else if (arr[i] == 1)
+                    {
+                        i++;
+                    }
+                }
+            }
+        }
+
+        public static void DuthNationFlagR0G1B2_3WayPAtitioningOptimizedforITerations(int[] arr)
+        {
+            if (arr != null && arr.Length > 0)
+            {
+                int red = 0; int blue = arr.Length - 1;
+                int i = 0;
+
+                while(arr[blue] == 2)//we need blue to be at non blue place
+                {
+                    blue--;
+                }
+
+                while(i <= blue) //as blue is at a non blue place always we need to consider that as well but beyond blueIndex all are sorted blues
+                {
+                    if(arr[i] < 1)
+                    {
+                        SwapTwoArrayElements(arr, i, red);
+                        i++;
+                        red++;
+                    }
+                    else if(arr[i] > 1)
+                    {
+                        SwapTwoArrayElements(arr, i, blue);
+                        while (arr[blue] == 2)//we need blue to be at non blue place, this is for optimization but not required
+                        {
+                            blue--;
+                        }
+                    }
+                    else if(arr[i] == 1)
+                    {
+                        i++;
+                    }
+                }
+            }
+        }
         public static void DuthNationalFlagR0G1B2Arrangement(int[] arr) //robertSedgwick algorithm 3 way partitionning
         {
             int redIndex = 0, blueIndex = arr.Length -1, i =0;

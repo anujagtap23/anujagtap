@@ -10,7 +10,6 @@ namespace ExampleProject.DynamicProgramming
         static int LevenshteinDistance(string strWord1, string strWord2)
         {
 
-
             int[][] table = new int[strWord1.Length + 1][];
 
             for (int i = 0; i < table.Length; i++)

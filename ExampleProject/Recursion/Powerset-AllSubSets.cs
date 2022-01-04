@@ -9,7 +9,7 @@ namespace ExampleProject.Recursion
         public static List<string> GeneratePowerSet(int[] arr)
         {
             List<string> result = new List<string>();
-            GeneratePowerSetHelper(arr, 0, new StringBuilder(), result);
+            GeneratePowerSetHelper(arr, 0, new StringBuilder(), result);//string builder can be preInitialized arr or arrlist as well
             return result;
         }
 
@@ -23,7 +23,7 @@ namespace ExampleProject.Recursion
 
                 soFar.Append(arr[index]);//include curr element
                 GeneratePowerSetHelper(arr, index + 1, soFar, result); 
-                soFar.Remove(soFar.Length - 1, 1);
+                soFar.Remove(soFar.Length - 1, 1);//remove choice , just like stack pop when recursion goes back to the root
             }
         }
     }

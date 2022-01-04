@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ExampleProject.Graphs
@@ -18,10 +19,17 @@ namespace ExampleProject.Graphs
         public int[] departure;
         public Graph(int v)
         {
+            string s; string [] a = new string[10];
+            List<string> b = new List<string>();
+            //s.Reverse(); 
+            b.ToArray().CopyTo(a, 1);
+            string.Concat(a);
+            
+
             NumberOfVertices = v;
             //assume all vertices have Ids 1 to v
             AdjacencyListUsingArray = new List<int> [v];
-
+            
             for (int i = 0; i < v; i++)
                 AdjacencyListUsingArray[i] = new List<int>();
 

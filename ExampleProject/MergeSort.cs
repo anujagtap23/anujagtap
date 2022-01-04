@@ -106,5 +106,51 @@ namespace ExampleProject
 
             CopyAuxToArr(arr, aux, start, end);
         }
+
+
+        public static List<int> merge_sort(List<int> arr)
+        {
+            Merge_Sort_Helper(arr, 0, arr.Count - 1);
+            return arr;
+        }
+
+        public static void Merge_Sort_Helper(List<int> arr, int start, int end)
+        {
+            if (start >= end) return;
+
+            int mid = (start + end) / 2;
+            Merge_Sort_Helper(arr, start, mid);
+            Merge_Sort_Helper(arr, mid + 1, end);
+
+            int left = start, right = mid + 1;
+            List<int> aux = new List<int>();
+
+            while (left <= mid && right <= end)
+            {
+                if (arr[left] <= arr[right])
+            {
+                    aux.Add(arr[left++]);
+                }
+            else
+                {
+                    aux.Add(arr[right++]);
+                }
+            }
+            while (left <= mid)
+            {
+                aux.Add(arr[left++]);
+            }
+
+            while (right <= end)
+            {
+                aux.Add(arr[right++]);
+            }
+
+            for (int i = start; i <= end; i++)
+            {
+                arr[i] = aux[i - start];
+            }
+        }
+
     }
 }

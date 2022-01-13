@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ExampleProject.DynamicProgramming
@@ -9,7 +10,7 @@ namespace ExampleProject.DynamicProgramming
         //LC 72 Edit distance : min operations required to go from word1 -> word2
         static int LevenshteinDistance(string strWord1, string strWord2)
         {
-
+            
             int[][] table = new int[strWord1.Length + 1][];
 
             for (int i = 0; i < table.Length; i++)

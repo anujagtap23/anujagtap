@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace ExampleProject.Recursion
 {
@@ -37,7 +38,7 @@ namespace ExampleProject.Recursion
         public static List<string> GetUpperLowerCasePermutationEfficient(string str)
         {
             List<string> result = new List<string>();
-            StringBuilder mutableStr = new StringBuilder();
+            StringBuilder mutableStr = new StringBuilder(); 
             GetUpperLowerCasePermutationEfficientHelper(str.ToCharArray(), 0, mutableStr, result);
             return result;
         }

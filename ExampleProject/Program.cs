@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using ExampleProject.Recursion;
 using ExampleProject.Trees;
 using ExampleProject.Graphs;
+using ExampleProject.SlidingWindow;
+using ExampleProject.ArrProb;
+using ExampleProject.StringProblems;
 
 namespace ExampleProject
 {
@@ -10,6 +13,29 @@ namespace ExampleProject
     {
         public static void Main(string[] args)
         {
+            StrProblems.FullJustify(new string[] { "a" }, 2);
+            StrProblems.FullJustify(new string[] { "ask","not","what","your","country","can","do","for","you","ask","what","you","can","do","for","your","country"}, 16);
+            StrProblems.FullJustify(new string[] { "Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do" }, 20);
+
+            StrProblems.FullJustify(new string[] { "This", "is", "an", "example", "of", "text", "justification." }, 16);
+
+            BitWise.BitwiseProblems.BitwiseMain(null);
+            //strstr
+            StrProblems.StrStr("mississippi","pi");
+            //ReverseString
+            StrProblems.Reverse(123);
+            //LC 418. Sentence Screen Fitting
+            ArrayProblems.ScreenSentenceTyping(new string[] { "f", "p", "a" }, 8,7);
+
+            //https://leetcode.com/problems/move-zeroes/solution/            
+            ArrayProblems.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
+
+            //LC 567. Permutation in String
+            SlidingWindow.SlidingWindow.CheckInclusion("adc", "dcda");
+
+            //LC max sliding window
+            int[] slidingArr = new int[] {1, 3, -1, -3, 5, 3, 6, 7};
+            SlidingWindow.SlidingWindow.MaxSlidingWindow(slidingArr, 3);
 
             //LCS path src -> dest
             PAthFromSrcToDestLCA obj = new PAthFromSrcToDestLCA();

@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Text;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ExampleProject.Recursion;
 using ExampleProject.Trees;
 using ExampleProject.Graphs;
 using ExampleProject.SlidingWindow;
 using ExampleProject.ArrProb;
 using ExampleProject.StringProblems;
+using ExampleProject.Intervals;
 
 namespace ExampleProject
 {
@@ -13,10 +17,46 @@ namespace ExampleProject
     {
         public static void Main(string[] args)
         {
+            IntervalProblems.CanTaskBeScheduled(new Interval[]
+            {new Interval(5,10), new Interval(20,30), new Interval(12,16)}, new Interval(8, 12));
+            //FB start
+            ArrayProblems.numberOfWays(new int[] { 1, 2, 3, 4, 3}, 6);
+            ArrayProblems.numberOfWays(new int[] { 1, 5, 3, 3, 3 }, 6);
+            ArrayProblems.CountSubarraysWithMaxStartingEndingAtIBrute(new int[] { 3, 4, 1, 6, 2 });
+            Console.WriteLine(RotationalCipher.RotationalCipherFunc("Zebra-493", 3));
+            
+            
+            //FB end
+            ArrayProblems.ReorderLogFiles(new string[] { "dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero" });
+
+            //crosses right boundary
+            Console.WriteLine(ArrayProblems.MedianOf2SortedArrays(new int[] { 0, 1 }, new int[] { 2, 3, 4, 5, 6, 7, 8, 9 }));
+            //crosses left boundary
+            Console.WriteLine(ArrayProblems.MedianOf2SortedArrays(new int[] { 0, 1, 2, 3, 4, 5, 6 }, new int[] { 7, 8, 9, 10 }));
+            Console.WriteLine(ArrayProblems.MedianOf2SortedArrays(new int[] { 1,2,3,4,5,7,8,8}, new int[] { 3, 10, 12, 12}));
+
+            StringBuilder sb = new StringBuilder();
+            new string(sb.ToString().Reverse().ToArray());
+
+            char[] charArray = sb.ToString().ToCharArray();
+            Array.Reverse(charArray);
+            Console.WriteLine(new string(charArray));
+
+            Intervals.IntervalProblems interval = new Intervals.IntervalProblems();
+            interval.EmployeeFreeTime();
+            interval.SortIntervalArray();
+            Dictionary<int, int> d = new Dictionary<int, int>();
+            d[1] = 1;
+            int[,] resultz = new int[1,1];
+            int iz = 0, jz = 0;
+            resultz[iz, jz] = 8;
+
+            iz = resultz.Length; //jz = resultz.
+            var ans = new List<int>(new int[10]);
+        
             StrProblems.FullJustify(new string[] { "a" }, 2);
             StrProblems.FullJustify(new string[] { "ask","not","what","your","country","can","do","for","you","ask","what","you","can","do","for","your","country"}, 16);
             StrProblems.FullJustify(new string[] { "Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do" }, 20);
-
             StrProblems.FullJustify(new string[] { "This", "is", "an", "example", "of", "text", "justification." }, 16);
 
             BitWise.BitwiseProblems.BitwiseMain(null);

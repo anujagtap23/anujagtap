@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Collections;
 
 namespace ExampleProject.StringProblems
-{
+{    
+    
     public static class StrProblems
-    {
-        //LC 68 https://leetcode.com/problems/text-justification/
+    {   //LC 68 https://leetcode.com/problems/text-justification/
         public static IList<string> FullJustify(string[] words, int maxWidth)
         {
-
             IList<string> result = new List<string>();
 
             if (words != null && words.Length > 0 && maxWidth > 0)
@@ -162,7 +163,6 @@ namespace ExampleProject.StringProblems
 
         public static  int Reverse(int x)
         {
-
             int reversed = 0;
             int multiplier = 1;
 
@@ -221,6 +221,8 @@ namespace ExampleProject.StringProblems
 
         public static IList<IList<string>> GroupAnagrams(string[] strs)
         {
+            
+
             if (strs == null || strs.Length == 0) return new List<IList<string>>();
 
             Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();

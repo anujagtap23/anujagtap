@@ -7,6 +7,13 @@ namespace ExampleProject.SlidingWindow
 {
     public static class SlidingWindow
     {
+        public static void SlidingWindowMain(String[] args)
+        {
+            String str = "aabbbaa";
+            int count = findAllPalindromeSubstrings(str);
+            Console.WriteLine("Total palindrome substrings: " + count);
+        }
+
         public static int[] MaxSlidingWindow(int[] nums, int k)
         {
             List<int> result = new List<int>();
@@ -83,5 +90,34 @@ namespace ExampleProject.SlidingWindow
             }
             return false;
         }
+
+        public static int findPalindromesInSubString(string input, int j, int k)
+        {
+            int count = 0;
+            for (; j >= 0 && k < input.Length; --j, ++k)
+            {
+                if (input[j] != input[k])
+                {
+                    break;
+                }
+                Console.WriteLine(input.Substring(j, k + 1));
+                count++;
+            }
+            return count;
+        }
+
+        public static int findAllPalindromeSubstrings(String input)
+        {
+            int count = 0;
+            for (int i = 0; i < input.Length; ++i)
+            {
+                count += findPalindromesInSubString(input, i - 1, i + 1);
+                count += findPalindromesInSubString(input, i, i + 1);
+            }
+
+            return count;
+        }
+
+        
     }
 }

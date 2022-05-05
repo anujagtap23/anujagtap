@@ -8,7 +8,53 @@ namespace ExampleProject.StringProblems
 {    
     
     public static class StrProblems
-    {   //LC 68 https://leetcode.com/problems/text-justification/
+    {
+        //LC  358 https://leetcode.com/problems/rearrange-string-k-distance-apart
+        public static string RearrangeString(string s, int k)
+        {
+
+            if (k == 0) return s;
+            int[] freq = new int[26];
+            var ans = new StringBuilder();
+            var charArray = s.ToCharArray();
+            foreach (var c in charArray) freq[c - 'a']++;
+            var pq = new SortedDictionary<int, int>();
+
+            for (int i = 0; i < 26; i++)
+                if (freq[i] > 0)
+                    pq.Add(i, freq[i]);
+
+        
+
+            var q = new Queue<int[]>();
+            while (pq.Count != 0)
+            {
+                int keyChar = pq.Keys.First();
+                int valueFreq = pq[keyChar];
+                pq.Remove(keyChar);
+
+                int[] current = new int[2] { keyChar, valueFreq };
+
+                ans.Append((char)(current[0] + 'a'));
+                current[1]--;
+                q.Enqueue(current);
+
+                if (q.Count >= k)
+                {
+                    int[] front = q.Dequeue();
+                    if (front[1] > 0)
+                    {
+                        pq.Add(front[0], front[1]);
+                        pq.OrderByDescending(kv => kv.Value);
+                    }
+                }
+            }
+
+            return ans.Length == s.Length ? ans.ToString() : "";
+        }
+
+
+        //LC 68 https://leetcode.com/problems/text-justification/
         public static IList<string> FullJustify(string[] words, int maxWidth)
         {
             IList<string> result = new List<string>();

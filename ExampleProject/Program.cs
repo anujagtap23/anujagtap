@@ -10,13 +10,75 @@ using ExampleProject.SlidingWindow;
 using ExampleProject.ArrProb;
 using ExampleProject.StringProblems;
 using ExampleProject.Intervals;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace ExampleProject
 {
     public class Program
     {
+        class DescendingComparer<T> : IComparer<T> where T : IComparable<T>
+        {
+            public int Compare(T x, T y)
+            {
+                return y.CompareTo(x);
+            }
+        }
+
         public static void Main(string[] args)
         {
+            string pattern = "<[A-Z]{0,9}>([^<]*(<((\\/?[A-Z]{1,9}>)|(!\\[CDATA\\[(.*?)]]>)))?)*";
+            string input = "<DI44V>This is the first line <![CDATA[<div>]]></DIV>";
+            Match m = Regex.Match(input, pattern, RegexOptions.IgnoreCase);
+            if (m.Success)
+                Console.WriteLine("Found '{0}' at position {1}.", m.Value, m.Index);
+
+
+            long v = Math.Abs(Convert.ToInt64(Int16.MinValue));
+
+            double val1 = 0.5;
+            double neg = Math.Log(val1);
+            double val2 = Math.Exp(neg);
+
+            HashSet<int> set = new HashSet<int>() ; HashSet<int> set2 = new HashSet<int>();
+            set.Add(1); set.Add(1); set.Add(2); set.Add(3); set.Add(4); set.Add(5);
+            set2.Add(11); set2.Add(10); set2.Add(2); set2.Add(3); set2.Add(4); set2.Add(5);
+            var resultSet = set.Intersect<int>(set2);
+            set.IntersectWith(set2);
+            StrProblems.RearrangeString("abb", 2);
+
+            var descendingComparer = Comparer<int>.Create((x, y) => y.CompareTo(x));
+            var Dict = new SortedDictionary<int, string>(descendingComparer);//(new DescendingComparer<int>());
+
+            var sortedSet = new SortedSet<int>();
+            
+
+            Dict.Add(3, "d"); Dict.Add(2, "d"); Dict.Add(6, "d"); Dict.Add(1, "d");
+
+            int minKey = Dict.First().Key; Dict.Remove(minKey);
+            int maxKey = Dict.Max().Key; Dict.Remove(maxKey);
+
+            SortedList sortedList = new SortedList(descendingComparer);
+            
+            sortedList.Add(3, "d"); sortedList.Add(2, "d"); sortedList.Add(6, "d"); sortedList.Add(1, "d");
+
+            List<int> list = new List<int>() { 4, 5, 6, 1, 2, 4 };
+            list.Sort();
+            list.Sort(delegate (int x, int y)
+            {
+                return y.CompareTo(x);
+            });
+
+            list = null;
+
+            
+            Debug.Assert(list == null, "list is null");
+
+            IntervalProblems.CanTaskBeScheduled(new int[3][] { new int[2] { 5,10 }, new int[2] { 20, 30 }, new int[2] { 12, 16 } }, new int[2] { 8, 12 });
+            string s = $"{minKey},{maxKey}";
+
+            
+
             IntervalProblems.CanTaskBeScheduled(new Interval[]
             {new Interval(5,10), new Interval(20,30), new Interval(12,16)}, new Interval(8, 12));
             //FB start
@@ -29,6 +91,8 @@ namespace ExampleProject
             //FB end
             ArrayProblems.ReorderLogFiles(new string[] { "dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero" });
 
+            
+
             //crosses right boundary
             Console.WriteLine(ArrayProblems.MedianOf2SortedArrays(new int[] { 0, 1 }, new int[] { 2, 3, 4, 5, 6, 7, 8, 9 }));
             //crosses left boundary
@@ -36,6 +100,7 @@ namespace ExampleProject
             Console.WriteLine(ArrayProblems.MedianOf2SortedArrays(new int[] { 1,2,3,4,5,7,8,8}, new int[] { 3, 10, 12, 12}));
 
             StringBuilder sb = new StringBuilder();
+
             new string(sb.ToString().Reverse().ToArray());
 
             char[] charArray = sb.ToString().ToCharArray();

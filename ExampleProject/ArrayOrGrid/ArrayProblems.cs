@@ -47,6 +47,8 @@ namespace ExampleProject.ArrProb
             Array.Sort(logs, new LogRecordComparer());
             return logs;
         }
+
+        //O(log (m+n))
         public static double MedianOf2SortedArrays(int[] arr1, int[] arr2)
         {
             double median = 0;
